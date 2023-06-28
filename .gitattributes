@@ -1,0 +1,1 @@
+migrationtoolkit-mta-cli-5.3.0-offline.zip filter=lfs diff=lfs merge=lfs -text
