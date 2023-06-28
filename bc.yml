@@ -1,0 +1,25 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: test-git-lfs
+spec:
+  lookupPolicy:
+    local: true
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: test-git-lfs
+spec:
+  output:
+    to:
+      kind: 'ImageStreamTag'
+      name: 'test-git-lfs:latest'
+  source:
+    git:
+      uri: "https://github.com/selrahal/buildconfig-git-lfs.git"
+  strategy:
+    dockerStrategy:
+      from:
+        kind: "DockerImage"
+        name: "registry.access.redhat.com/ubi8/openjdk-11-runtime:1.13-1.1655306368"
