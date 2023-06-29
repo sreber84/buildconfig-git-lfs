@@ -20,6 +20,3 @@ spec:
       uri: "https://github.com/selrahal/buildconfig-git-lfs.git"
   strategy:
     dockerStrategy:
-      from:
-        kind: "DockerImage"
-        name: "registry.access.redhat.com/ubi8/openjdk-11-runtime:1.13-1.1655306368"
