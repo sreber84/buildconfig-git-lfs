@@ -15,8 +15,18 @@ spec:
     to:
       kind: 'ImageStreamTag'
       name: 'test-git-lfs:latest'
+  resources:
+    limits:
+      cpu: 500m
+      memory: 250Mi
+    requests:
+      cpu: 200m
+      memory: 128Mi
   source:
     git:
-      uri: "https://github.com/selrahal/buildconfig-git-lfs.git"
+      uri: "https://github.com/sreber/buildconfig-git-lfs.git"
   strategy:
     dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 1
